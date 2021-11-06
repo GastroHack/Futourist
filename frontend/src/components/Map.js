@@ -41,7 +41,7 @@ const apiIsLoaded = (map, maps, places) => {
   bindResizeListener(map, maps, bounds);
 
   const origin = { lat: 47.78861, lng: 13.06024 };
-  const destination = { lat: 47.79028, lng: 13.04764 };
+  const destination = { lat: 47.800714, lng: 13.066319 };
 
   const directionsService = new maps.DirectionsService();
   const directionsDisplay = new maps.DirectionsRenderer();
@@ -50,6 +50,16 @@ const apiIsLoaded = (map, maps, places) => {
       origin,
       destination,
       travelMode: "DRIVING",
+      waypoints: [
+        {
+          location: {
+            lat: 47.79028,
+            lng: 13.04764,
+          },
+          stopover: true,
+        },
+      ],
+      optimizeWaypoints: true,
     },
 
     (response, status) => {

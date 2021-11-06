@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.util.StaxUtil;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.xml.stream.XMLStreamException;
@@ -23,15 +21,10 @@ public class POIDataProvider {
 
   public static final String XML_NAMESPACE = "http://meta.et4.de/ET2014A";
 
-  private Result EventDe;
   private Result EventEn;
-  private Result GastroDe;
   private Result GastroEn;
-  private Result HotelDe;
   private Result HotelEn;
-  private Result POIDe;
   private Result POIEn;
-  private Result TourDe;
   private Result TourEn;
 
   public POIDataProvider() {
@@ -70,62 +63,22 @@ public class POIDataProvider {
     return java.nio.file.Files.readAllBytes(path);
   }
 
-  @Bean
-  @Scope("singleton")
-  public Result getEventDe() {
-    return EventDe;
-  }
-
-  @Bean
-  @Scope("singleton")
   public Result getEventEn() {
     return EventEn;
   }
 
-  @Bean
-  @Scope("singleton")
-  public Result getGastroDe() {
-    return GastroDe;
-  }
-
-  @Bean
-  @Scope("singleton")
   public Result getGastroEn() {
     return GastroEn;
   }
 
-  @Bean
-  @Scope("singleton")
-  public Result getHotelDe() {
-    return HotelDe;
-  }
-
-  @Bean
-  @Scope("singleton")
   public Result getHotelEn() {
     return HotelEn;
   }
 
-  @Bean
-  @Scope("singleton")
-  public Result getPOIDe() {
-    return POIDe;
-  }
-
-  @Bean
-  @Scope("singleton")
   public Result getPOIEn() {
     return POIEn;
   }
 
-  @Bean
-  @Scope("singleton")
-  public Result getTourDe() {
-    return TourDe;
-  }
-
-  @Bean
-  @Scope("singleton")
   public Result getTourEn() {
     return TourEn;
   }
@@ -134,7 +87,7 @@ public class POIDataProvider {
 
     private final String defaultNamespace;
 
-    public NamespaceXmlFactory(String defaultNamespace) {
+    NamespaceXmlFactory(String defaultNamespace) {
       this.defaultNamespace = Objects.requireNonNull(defaultNamespace);
     }
 

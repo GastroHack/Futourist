@@ -16,6 +16,6 @@ spec:
         app: backend
     spec:
       containers:
-      - image: kennethreitz/httpbin:latest
+      - image: jajcoszek/futourist-api:test-rc3
         imagePullPolicy: Always
         name: backend

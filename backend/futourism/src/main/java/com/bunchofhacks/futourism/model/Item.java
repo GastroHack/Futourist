@@ -7,112 +7,112 @@ import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPAC
 
 public class Item {
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String global_id;
+    private String global_id;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String id;
+    private String id;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String title;
+    private String title;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String type;
+    private String type;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "category")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "categories")
-    String[] categories;
+    private String[] categories;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "text")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "texts")
-    String[] texts;
+    private String[] texts;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "number")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "numbers")
-    String[] numbers;
+    private String[] numbers;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "cuisine_type")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "cuisine_types")
-    String[] cuisineType;
+    private String[] cuisineType;
 
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String country;
+    private String country;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String[] areas;
+    private String[] areas;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String city;
+    private String city;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String zip;
+    private String zip;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String street;
+    private String street;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String phone;
+    private String phone;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String web;
+    private String web;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String email;
+    private String email;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String author;
+    private String author;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    Geo geo;
+    private Geo geo;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "rating")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "ratings")
-    String[] ratings;
+    private String[] ratings;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "media_object")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "media_objects")
-    MediaObject[] mediaObjects;
+    private MediaObject[] mediaObjects;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "timeInterval")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "timeIntervals")
-    TimeInterval[] timeIntervals;
+    private TimeInterval[] timeIntervals;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String name;
+    private String name;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "attribute")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "attributes")
-    Attribute[] attributes;
+    private Attribute[] attributes;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "feature")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "features")
-    String[] features;
+    private String[] features;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "season")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "seasons")
-    String[] seasons;
+    private String[] seasons;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "address")
     @JacksonXmlElementWrapper(namespace = XML_NAMESPACE, localName = "addresses")
-    Address[] addresses;
+    private Address[] addresses;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String fax;
+    private String fax;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String created;
+    private String created;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String changed;
+    private String changed;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String source;
+    private String source;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String company;
+    private String company;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String district;
+    private String district;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String postoffice;
+    private String postoffice;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String phone2;
+    private String phone2;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String duration;
+    private String duration;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String length;
+    private String length;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String elevationMin;
+    private String elevationMin;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String elevationMax;
+    private String elevationMax;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String totalAscent;
+    private String totalAscent;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String totalDescent;
+    private String totalDescent;
 
     public String getGlobal_id() {
         return global_id;

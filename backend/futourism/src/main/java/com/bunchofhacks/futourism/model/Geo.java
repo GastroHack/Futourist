@@ -6,13 +6,13 @@ import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPAC
 
 public class Geo {
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    Main main;
+    private Main main;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String geometry;
+    private String geometry;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String author;
+    private String author;
 
     public Main getMain() {
         return main;

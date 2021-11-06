@@ -7,25 +7,25 @@ import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPAC
 
 public class MediaObject {
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String rel;
+    private String rel;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String url;
+    private String url;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String type;
+    private String type;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String source;
+    private String source;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String license;
+    private String license;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String author;
+    private String author;
 
     @JacksonXmlText
-    String text;
+    private String text;
 
     public String getRel() {
         return rel;

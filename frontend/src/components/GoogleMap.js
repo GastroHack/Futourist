@@ -7,7 +7,7 @@ const GoogleMap = ({ children, ...props }) => (
     <div style={{ width: "100%", height: "100%" }}>
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: process.env.REACT_APP_MAP_KEY,
+          key: 'AIzaSyAdhUldBaCzhef3XZzneS2p6cg2tMrAmjA',
         }}
         {...props}
       >

@@ -2,11 +2,13 @@ package com.bunchofhacks.futourism.model;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
+import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPACE;
+
 public class Main {
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     private String latitude;
 
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     private String longitude;
 
 }

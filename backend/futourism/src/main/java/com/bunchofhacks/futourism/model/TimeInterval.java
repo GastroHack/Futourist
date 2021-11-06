@@ -2,23 +2,26 @@ package com.bunchofhacks.futourism.model;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
+import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPACE;
+
 public class TimeInterval {
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     String start;
 
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     String end;
 
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     String repeatUntil;
 
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     String tz;
 
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     String freq;
 
-    @JacksonXmlProperty(isAttribute = true)
+    @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
     String interval;
+    @JacksonXmlProperty(namespace = XML_NAMESPACE)
     String[] weekdays;
 }

@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import SpotSidebar from "./components/SpotSidebar/SpotSidebar";
 import Overview from "./components/Overview";
 

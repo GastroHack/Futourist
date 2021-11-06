@@ -8,6 +8,8 @@ public class POIOutputParser {
   public static POIOutput map(Item item) {
     POIOutput poiOutput = new POIOutput();
 
+    poiOutput.setId(item.getId());
+
     String formattedAddress =
         String.format(
             "%s, %s, %s, %s", item.getStreet(), item.getCity(), item.getZip(), item.getCountry());

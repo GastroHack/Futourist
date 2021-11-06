@@ -6,24 +6,24 @@ import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPAC
 
 public class TimeInterval {
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String start;
+    private String start;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String end;
+    private String end;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String repeatUntil;
+    private String repeatUntil;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String tz;
+    private String tz;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String freq;
+    private String freq;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String interval;
+    private String interval;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String[] weekdays;
+    private String[] weekdays;
 
     public String getStart() {
         return start;

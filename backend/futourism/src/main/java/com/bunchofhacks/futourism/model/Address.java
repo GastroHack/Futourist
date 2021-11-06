@@ -6,20 +6,20 @@ import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPAC
 
 public class Address {
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String rel;
+    private String rel;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String name;
+    private String name;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String fax;
+    private String fax;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String district;
+    private String district;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String company;
+    private String company;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String firstname;
+    private String firstname;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String lastname;
+    private String lastname;
 
     public String getRel() {
         return rel;

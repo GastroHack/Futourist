@@ -9,15 +9,15 @@ import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPAC
 @JacksonXmlRootElement(namespace = XML_NAMESPACE)
 public class Result {
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String status;
+    private String status;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String count;
+    private String count;
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String overallcount;
+    private String overallcount;
 
     @JacksonXmlProperty(namespace = XML_NAMESPACE, localName = "item")
     @JacksonXmlElementWrapper(localName = "items")
-    Item[] items;
+    private Item[] items;
 
     public String getStatus() {
         return status;

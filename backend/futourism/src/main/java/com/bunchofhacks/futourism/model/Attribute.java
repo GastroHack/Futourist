@@ -7,11 +7,11 @@ import static com.bunchofhacks.futourism.controller.POIDataProvider.XML_NAMESPAC
 
 public class Attribute {
     @JacksonXmlProperty(namespace = XML_NAMESPACE, isAttribute = true)
-    String key;
+    private String key;
 
     @JacksonXmlText
     @JacksonXmlProperty(namespace = XML_NAMESPACE)
-    String content;
+    private String content;
 
     public String getKey() {
         return key;

@@ -39,19 +39,19 @@ public class POIDataProvider {
     try {
       EventEn =
           xmlMapper.readValue(
-              getBufferForFilename("backend/futourism/data/Event_en.xml"), Result.class);
+              getBufferForFilename("data/Event_en.xml"), Result.class);
       GastroEn =
           xmlMapper.readValue(
-              getBufferForFilename("backend/futourism/data/Gastro_en.xml"), Result.class);
+              getBufferForFilename("data/Gastro_en.xml"), Result.class);
       HotelEn =
           xmlMapper.readValue(
-              getBufferForFilename("backend/futourism/data/Hotel_en.xml"), Result.class);
+              getBufferForFilename("data/Hotel_en.xml"), Result.class);
       POIEn =
           xmlMapper.readValue(
-              getBufferForFilename("backend/futourism/data/POI_en.xml"), Result.class);
+              getBufferForFilename("data/POI_en.xml"), Result.class);
       TourEn =
           xmlMapper.readValue(
-              getBufferForFilename("backend/futourism/data/Tour_en.xml"), Result.class);
+              getBufferForFilename("data/Tour_en.xml"), Result.class);
 
     } catch (IOException e) {
       e.printStackTrace();

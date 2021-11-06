@@ -15,7 +15,6 @@
 # vendor/
 
 .idea
-/backend/data
 
 HELP.md
 target/

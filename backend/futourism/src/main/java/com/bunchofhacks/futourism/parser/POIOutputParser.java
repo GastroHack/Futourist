@@ -13,7 +13,7 @@ public class POIOutputParser {
             "%s, %s, %s, %s", item.getStreet(), item.getCity(), item.getZip(), item.getCountry());
 
     poiOutput.setFormattedAddress(formattedAddress);
-    poiOutput.setName(item.getName());
+    poiOutput.setName(item.getTitle());
 
     String lat = item.getGeo().getMain().getLatitude();
     String lng = item.getGeo().getMain().getLongitude();

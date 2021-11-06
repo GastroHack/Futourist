@@ -71,9 +71,8 @@ const apiIsLoaded = (map, maps, places) => {
 
     (response, status) => {
       if (status === "OK") {
-        console.log(`buddies ~ apiIsLoaded ~ status`, status);
         directionsDisplay.setDirections(response);
-        console.log(response.routes[0].overview_path, "Ruta");
+
         const routePolyline = new maps.Polyline({
           path: response.routes[0].overview_path,
         });

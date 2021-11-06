@@ -3,6 +3,7 @@ package com.bunchofhacks.futourism.output;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class POIOutput {
+  private String id;
   private String formattedAddress;
   private GeometryOutput geometry;
   private String name;
@@ -39,5 +40,13 @@ public class POIOutput {
 
   public void setImgUrl(String imgUrl) {
     this.imgUrl = imgUrl;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 }

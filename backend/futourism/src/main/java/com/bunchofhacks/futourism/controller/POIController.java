@@ -36,31 +36,31 @@ public class POIController {
 
     List<POIOutput> eventEnList = new ArrayList();
 
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= 30; i++) {
       eventEnList.add(POIOutputParser.map(eventEn.getItems()[i]));
     }
 
     List<POIOutput> gastroEnList = new ArrayList();
 
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= 30; i++) {
       gastroEnList.add(POIOutputParser.map(gastroEn.getItems()[i]));
     }
 
     List<POIOutput> hotelEnList = new ArrayList();
 
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= 30; i++) {
       hotelEnList.add(POIOutputParser.map(hotelEn.getItems()[i]));
     }
 
     List<POIOutput> poiEnList = new ArrayList();
 
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= 30; i++) {
       poiEnList.add(POIOutputParser.map(poiEn.getItems()[i]));
     }
 
     List<POIOutput> tourEnList = new ArrayList();
 
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= 30; i++) {
       tourEnList.add(POIOutputParser.map(tourEn.getItems()[i + 10]));
     }
 

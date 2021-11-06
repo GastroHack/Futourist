@@ -16,6 +16,6 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: kennethreitz/httpbin:latest
-        imagePullPolicy: Always
-        name: frontend
+        - image: jajcoszek/futourist:0.0.1
+          imagePullPolicy: Always
+          name: frontend

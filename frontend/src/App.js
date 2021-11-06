@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-import "./App.css";
 import SpotSidebar from "./components/SpotSidebar/SpotSidebar";
 import Overview from "./components/Overview";
 

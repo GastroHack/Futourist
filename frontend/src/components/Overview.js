@@ -1,7 +1,9 @@
 import React from "react";
 
-const Overview = () => {
-  return <div>overview</div>;
+import Map from "./Map";
+
+const Overview = props => {
+  return <Map />;
 };
 
 export default Overview;

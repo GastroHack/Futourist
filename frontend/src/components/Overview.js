@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SpotSidebar from "./SpotSidebar/SpotSidebar";
-import Map from "./Map";
+import Map from "./Map/Map";
 
 const Overview = () => {
   const [spots, setSpots] = useState([]);

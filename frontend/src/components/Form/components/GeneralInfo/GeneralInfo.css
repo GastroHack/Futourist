@@ -75,3 +75,9 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   justify-content: center;
 }
+
+.generalInfoWrapper {
+	padding: 6rem 4rem;
+	font-size: 16pt;
+	color: #137dc5;
+}

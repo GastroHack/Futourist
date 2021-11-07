@@ -26,11 +26,7 @@ const SpotSidebar = ({ spots = [], updateSpots }) => {
     }
   };
 
-  const renderSuggestionItem = (
-    { imgUrl = DEFAULT_IMG_URL, name },
-    index,
-    suggestionIndex
-  ) => {
+  const renderSuggestionItem = ({ imgUrl, name }, index, suggestionIndex) => {
     let imageSrc = imgUrl || DEFAULT_IMG_URL;
 
     return (
@@ -66,18 +62,22 @@ const SpotSidebar = ({ spots = [], updateSpots }) => {
     return null;
   }
 
+  const arrowButton = (
+    <button
+      onClick={toggleExpanded}
+      className="arrowButton absolute left-full w-5 h-10 rounded-r text-gray-500 bg-gray-200 text-center"
+    >
+      {expanded ? "<" : ">"}
+    </button>
+  );
+
   return (
     <div
       className={`fixed sidebar ${
         expanded ? "sidebarExpanded" : ""
       } h-screen bg-white rounded p-3 shadow-lg`}
     >
-      <button
-        onClick={toggleExpanded}
-        className="arrowButton absolute left-full w-5 h-10 rounded-r text-gray-500 bg-gray-200 text-center"
-      >
-        {expanded ? "<" : ">"}
-      </button>
+      {arrowButton}
       <div
         className={`title ${expanded ? "titleExpanded" : ""} text-center mb-5`}
       >

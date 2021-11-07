@@ -3,32 +3,36 @@ import SpotSidebar from "./SpotSidebar/SpotSidebar";
 import Map from "./Map";
 
 const Overview = () => {
-  const [allPlaces, setAllPlaces] = useState([]);
   const [spots, setSpots] = useState([]);
+
+  const updateSpots = (index, newCurrentSpotIndex) => {
+    const updatedCurrentSpots = [...spots];
+    const currentItems = [...updatedCurrentSpots[index]];
+    const removedItem = currentItems.splice(newCurrentSpotIndex, 1);
+
+    updatedCurrentSpots[index] = [...removedItem, ...currentItems];
+
+    setSpots(updatedCurrentSpots);
+  };
 
   useEffect(() => {
     fetch("https://api.futourist.live/scenario1")
       .then((response) => response.json())
       .then((data) => {
-        const tempAllPlaces = [];
         const tempSpots = [];
 
-        Object.entries(data).forEach(([key, value]) => {
-          if (key !== "hotel") {
-            tempSpots.push({ items: [...value.slice(0, 3)] });
-            tempAllPlaces.push(...value);
-          }
+        data.forEach((items) => {
+          tempSpots.push(items);
         });
 
-        setAllPlaces(tempAllPlaces);
         setSpots(tempSpots);
       });
   }, []);
 
   return (
     <div>
-      <SpotSidebar spots={spots} />
-      <Map locationEntries={allPlaces} />
+      <SpotSidebar spots={spots} updateSpots={updateSpots} />
+      <Map locationEntries={spots} />
     </div>
   );
 };

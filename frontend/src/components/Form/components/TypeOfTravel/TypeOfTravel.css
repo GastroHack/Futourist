@@ -1,0 +1,41 @@
+.piggy {
+  background-image: url("./icons/piggy.png");
+}
+
+.diamond {
+  background-image: url("./icons/diamond.png");
+}
+
+.family {
+  background-image: url("./icons/family.png");
+}
+
+.compass {
+  background-image: url("./icons/compass.png");
+}
+
+.typeButtons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.typeButton {
+  margin: 2rem;
+  width: 5rem;
+  height: 5rem;
+  border: solid #137dc5 2px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px #137dc5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: content-box;
+  padding: 5px;
+}
+
+.typeWrapper {
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+  font-size: 16pt;
+  color: #137dc5;
+}

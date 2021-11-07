@@ -2,7 +2,7 @@ package com.bunchofhacks.futourism.controller;
 
 import com.bunchofhacks.futourism.model.Result;
 import com.bunchofhacks.futourism.output.POIOutput;
-import com.bunchofhacks.futourism.parser.POIOutputParser;
+import com.bunchofhacks.futourism.parser.POIOutputMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,31 +35,31 @@ public class POIController {
     List<POIOutput> eventEnList = new ArrayList();
 
     for (int i = 0; i <= 30; i++) {
-      eventEnList.add(POIOutputParser.map(eventEn.getItems()[i]));
+      eventEnList.add(POIOutputMapper.map(eventEn.getItems()[i]));
     }
 
     List<POIOutput> gastroEnList = new ArrayList();
 
     for (int i = 0; i <= 30; i++) {
-      gastroEnList.add(POIOutputParser.map(gastroEn.getItems()[i]));
+      gastroEnList.add(POIOutputMapper.map(gastroEn.getItems()[i]));
     }
 
     List<POIOutput> hotelEnList = new ArrayList();
 
     for (int i = 0; i <= 30; i++) {
-      hotelEnList.add(POIOutputParser.map(hotelEn.getItems()[i]));
+      hotelEnList.add(POIOutputMapper.map(hotelEn.getItems()[i]));
     }
 
     List<POIOutput> poiEnList = new ArrayList();
 
     for (int i = 0; i <= 30; i++) {
-      poiEnList.add(POIOutputParser.map(poiEn.getItems()[i]));
+      poiEnList.add(POIOutputMapper.map(poiEn.getItems()[i]));
     }
 
     List<POIOutput> tourEnList = new ArrayList();
 
     for (int i = 0; i <= 30; i++) {
-      tourEnList.add(POIOutputParser.map(tourEn.getItems()[i + 10]));
+      tourEnList.add(POIOutputMapper.map(tourEn.getItems()[i + 10]));
     }
 
     Map<String, List<POIOutput>> outStringListMap = new HashMap<>();

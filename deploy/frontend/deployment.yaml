@@ -16,6 +16,6 @@ spec:
         app: frontend
     spec:
       containers:
-        - image: jajcoszek/futourist:0.0.2
+        - image: jajcoszek/futourist:0.0.4
           imagePullPolicy: Always
           name: frontend

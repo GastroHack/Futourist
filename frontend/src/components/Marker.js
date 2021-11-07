@@ -6,11 +6,11 @@ const Marker = ({ text, onClick }) => (
       position: "absolute",
       top: "50%",
       left: "50%",
-      width: "24px",
-      height: "24px",
-      backgroundColor: "#FF0000",
-      border: "2px solid #FF0000",
-      borderRadius: "100%",
+      width: "16px",
+      height: "16px",
+      backgroundColor: "#137dc5",
+      border: "2px solid #137dc5",
+      borderRadius: "50%",
       transform: "translate(-50%, -50%)",
     }}
     alt={text}

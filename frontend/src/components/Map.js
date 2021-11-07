@@ -14,7 +14,7 @@ import LOS_ANGELES_CENTER from "../const/la_center";
 const getMapBounds = (map, maps, places) => {
   const bounds = new maps.LatLngBounds();
 
-  places.forEach(place => {
+  places.forEach((place) => {
     bounds.extend(
       new maps.LatLng(place.geometry.location.lat, place.geometry.location.lng)
     );
@@ -94,9 +94,15 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    fetch("places.json")
-      .then(response => response.json())
-      .then(data => this.setState({ places: data.results }));
+    fetch("https://api.futourist.live/scenario1")
+      .then((response) => response.json())
+      .then((data) => {
+        let tempPlaces = [];
+        Object.values(data).forEach((items) => {
+          tempPlaces.push(...items);
+        });
+        this.setState({ places: tempPlaces });
+      });
   }
 
   render() {
@@ -112,7 +118,7 @@ class Map extends Component {
               apiIsLoaded(map, maps, places)
             }
           >
-            {places.map(place => {
+            {places.map((place) => {
               return (
                 <Marker
                   key={place.id}

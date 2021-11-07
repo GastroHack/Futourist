@@ -2,8 +2,6 @@ import * as React from "react";
 
 const Logo = (props) => (
   <svg
-    width={278.4402302504532}
-    height={280.5}
     viewBox="0 0 210.00000000000003 211.55348114392723"
     className="css-1j8o68f"
     {...props}

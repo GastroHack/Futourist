@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import "./Activities.css";
+import Logo from "../../../../Logo";
 
 const Activities = () => {
   const activities = ["museum", "camera", "mountain", "mask"];
@@ -29,8 +30,11 @@ const Activities = () => {
       </div>
       <div className="buttonWrapper">
         <button className="next">
-          <Link to="/activities">NEXT</Link>
+          <Link to="/overview">NEXT</Link>
         </button>
+      </div>
+      <div className="logo">
+        <Logo />
       </div>
     </div>
   );

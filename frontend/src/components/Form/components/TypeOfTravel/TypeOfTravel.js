@@ -28,6 +28,9 @@ const TypeOfTravel = () => {
         </div>
       </div>
       <div className="buttonWrapper">
+        <button className="goToBack">
+          <Link to="/form">Go back</Link>
+        </button>
         <button className="next">
           <Link to="/activities">NEXT</Link>
         </button>

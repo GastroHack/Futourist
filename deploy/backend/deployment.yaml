@@ -16,6 +16,6 @@ spec:
         app: backend
     spec:
       containers:
-      - image: jajcoszek/futourist-api:0.0.2
+      - image: jajcoszek/futourist-api:0.0.3
         imagePullPolicy: Always
         name: backend

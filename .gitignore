@@ -1,1 +1,5 @@
 .idea
+/backend/futourism/data
+/backend/futourism/futourism.iml
+
+node_modules

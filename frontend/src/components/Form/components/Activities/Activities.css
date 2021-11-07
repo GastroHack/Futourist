@@ -11,3 +11,7 @@
 .camera {
   background-image: url("./icons/camera.png");
 }
+
+label {
+	font-size: 30px;
+}

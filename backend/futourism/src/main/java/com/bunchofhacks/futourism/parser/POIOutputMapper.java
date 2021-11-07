@@ -4,7 +4,7 @@ import com.bunchofhacks.futourism.model.Item;
 import com.bunchofhacks.futourism.output.GeometryOutput;
 import com.bunchofhacks.futourism.output.POIOutput;
 
-public class POIOutputParser {
+public class POIOutputMapper {
   public static POIOutput map(Item item) {
     POIOutput poiOutput = new POIOutput();
 
@@ -21,7 +21,7 @@ public class POIOutputParser {
     String lng = item.getGeo().getMain().getLongitude();
     poiOutput.setGeometry(new GeometryOutput(lat, lng));
 
-    poiOutput.setImgUrl(item.getMediaObjects()[0].getUrl());
+    poiOutput.setImgUrl(item.getMediaObjects()[item.getMediaObjects().length - 1].getUrl());
 
     return poiOutput;
   }

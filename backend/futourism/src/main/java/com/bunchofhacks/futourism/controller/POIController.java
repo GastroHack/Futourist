@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: Add endpoint to dynamically respond to client based on user preferences
 @RestController
 public class POIController {
 

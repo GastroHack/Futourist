@@ -1,8 +1,8 @@
 .title {
-	font-size: 16px;
-	color: #137DC5;
+  font-size: 16px;
+  color: #137dc5;
 
-	/* -webkit-transition: transform .3s ease-out;
+  /* -webkit-transition: transform .3s ease-out;
 	-moz-transition: transform .3s ease-out;
 	-o-transition: transform .3s ease-out;
 	transition: transform .3s ease-out;
@@ -11,89 +11,103 @@
 }
 
 .titleExpanded {
-	transform: scale(1.2);
-	margin-bottom: 1.75rem;
+  transform: scale(1.2);
+  margin-bottom: 1.75rem;
 }
 
 .sidebar {
-	width: 70px;
-	z-index: 1;
-	background-color: #fff;
-	opacity: 0.94;
+  width: 70px;
+  z-index: 1;
+  background-color: #fff;
+  opacity: 0.94;
 
-	/* -webkit-transition: width .6s ease-in;
+  /* -webkit-transition: width .6s ease-in;
 	-moz-transition: width .6s ease-in;
 	-o-transition: width .6s ease-in;
 	transition: width .6s ease-in; */
 }
 
 .sidebarExpanded {
-	width: 90%;
+  width: 90%;
 }
 
 .arrowButton {
-	top: calc(50% - 1.25rem);
-	background-color: #fff;
+  top: calc(50% - 1.25rem);
+  background-color: #fff;
 }
 
 .spot {
-	position: relative;
+  position: relative;
 }
 
 .spot::before {
-	content: '';
-	height: 25px;
-	position: absolute;
-	border-left: 2px dotted #2d388a;
-	left: calc(50% - 1px);
-	top: 100%;
+  content: "";
+  height: 25px;
+  position: absolute;
+  border-left: 2px dotted #2d388a;
+  left: calc(50% - 1px);
+  top: 100%;
 }
 
 .spot:last-of-type::before {
-	height: 0;
+  height: 0;
 }
 
 .spotName {
-	background-color: #b9c9cb;
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-	padding: 0 6px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+  background-color: #b9c9cb;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 0 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .spotImageWrapper {
-	position: relative;
-	width: 45px;
-	height: 45px;
-	border: 1px solid #2d388a;
-	border-radius: 3px;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #2d388a;
+  border-radius: 3px;
 }
 
 .spotImageWrapper.expanded,
 .spotImageWrapper.expanded {
-	width: 5rem;
-	height: 5rem;
+  width: 5rem;
+  height: 5rem;
+  /* transform: scale(2); */
+  /* transition-duration: 1300ms; */
 }
+
+/* @keyframes suggestions {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 80px;
+  }
+} */
 
 .suggestion-0,
 .suggestion-1 {
-	position: relative;
-	width: 4rem;
-	height: 4rem;
-	border: 1px solid #2d388a;
-	border-radius: 3px;
-	opacity: 0.7;
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #2d388a;
+  border-radius: 3px;
+  opacity: 0.7;
+  /* animation-name: suggestions;
+  animation-duration: 1300ms; */
 }
 
 .suggestion-0 {
-	transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
 }
 
 .suggestion-1 {
-	transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
 }
 
 /* .suggestion-0.expanded,
@@ -102,11 +116,11 @@
 } */
 
 .logo {
-	width: 2.5rem;
-	height: auto;
-	margin: auto auto 1.5rem;
+  width: 2.5rem;
+  height: auto;
+  margin: auto auto 1.5rem;
 }
 
 .content {
-	display: flex;
+  display: flex;
 }

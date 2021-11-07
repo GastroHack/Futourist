@@ -16,9 +16,9 @@ const SpotSidebar = ({ spots = [] }) => {
     }
 
     setActiveSpotIndex(index);
-    if (suggestionIndex !== undefined) {
-      toggleExpanded();
-    }
+    // if (suggestionIndex !== undefined) {
+    //   toggleExpanded();
+    // }
   };
 
   const renderSuggestionItem = (imageSrc, name, index, suggestionIndex) => {
@@ -39,7 +39,7 @@ const SpotSidebar = ({ spots = [] }) => {
     return (
       <button
         className={`spotImageWrapper ${
-          expanded ? "expanded" : ""
+          expanded ? "expanded" : "notExpanded"
         } mx-auto flex items-center`}
         onClick={setActiveIndex(index)}
       >

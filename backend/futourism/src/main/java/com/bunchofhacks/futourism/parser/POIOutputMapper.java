@@ -1,6 +1,7 @@
 package com.bunchofhacks.futourism.parser;
 
 import com.bunchofhacks.futourism.model.Item;
+import com.bunchofhacks.futourism.model.MediaObject;
 import com.bunchofhacks.futourism.output.GeometryOutput;
 import com.bunchofhacks.futourism.output.POIOutput;
 
@@ -21,7 +22,16 @@ public class POIOutputMapper {
     String lng = item.getGeo().getMain().getLongitude();
     poiOutput.setGeometry(new GeometryOutput(lat, lng));
 
-    poiOutput.setImgUrl(item.getMediaObjects()[item.getMediaObjects().length - 1].getUrl());
+    MediaObject outputMedia = new MediaObject();
+
+    for (MediaObject mediaObject : item.getMediaObjects()){
+      if (mediaObject.getRel().equals("imagegallery")){
+        outputMedia = mediaObject;
+        break;
+      }
+    }
+
+    poiOutput.setImgUrl(outputMedia.getUrl());
 
     return poiOutput;
   }

@@ -1,5 +1,6 @@
 package com.bunchofhacks.futourism.controller;
 
+import com.bunchofhacks.futourism.model.Item;
 import com.bunchofhacks.futourism.model.Result;
 import com.fasterxml.jackson.core.io.IOContext;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -14,6 +15,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Component
@@ -37,21 +40,11 @@ public class POIDataProvider {
     xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
     try {
-      EventEn =
-          xmlMapper.readValue(
-              getBufferForFilename("data/Event_en.xml"), Result.class);
-      GastroEn =
-          xmlMapper.readValue(
-              getBufferForFilename("data/Gastro_en.xml"), Result.class);
-      HotelEn =
-          xmlMapper.readValue(
-              getBufferForFilename("data/Hotel_en.xml"), Result.class);
-      POIEn =
-          xmlMapper.readValue(
-              getBufferForFilename("data/POI_en.xml"), Result.class);
-      TourEn =
-          xmlMapper.readValue(
-              getBufferForFilename("data/Tour_en.xml"), Result.class);
+      EventEn = xmlMapper.readValue(getBufferForFilename("data/Event_en.xml"), Result.class);
+      GastroEn = xmlMapper.readValue(getBufferForFilename("data/Gastro_en.xml"), Result.class);
+      HotelEn = xmlMapper.readValue(getBufferForFilename("data/Hotel_en.xml"), Result.class);
+      POIEn = xmlMapper.readValue(getBufferForFilename("data/POI_en.xml"), Result.class);
+      TourEn = xmlMapper.readValue(getBufferForFilename("data/Tour_en.xml"), Result.class);
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -81,6 +74,48 @@ public class POIDataProvider {
 
   public Result getTourEn() {
     return TourEn;
+  }
+
+  public List<List<Item>> getItemsbyIds(String... ids) {
+    List<List<Item>> result = new ArrayList<>();
+
+    for (String id : ids) {
+      List<Item> items = EventEn.getItemById(id);
+
+      if (!items.isEmpty()) {
+        result.add(items);
+        continue;
+      }
+
+      items = GastroEn.getItemById(id);
+
+      if (!items.isEmpty()) {
+        result.add(items);
+        continue;
+      }
+
+      items = HotelEn.getItemById(id);
+
+      if (!items.isEmpty()) {
+        result.add(items);
+        continue;
+      }
+
+      items = POIEn.getItemById(id);
+
+      if (!items.isEmpty()) {
+        result.add(items);
+        continue;
+      }
+
+      items = TourEn.getItemById(id);
+
+      if (!items.isEmpty()) {
+        result.add(items);
+      }
+    }
+
+    return result;
   }
 
   class NamespaceXmlFactory extends XmlFactory {

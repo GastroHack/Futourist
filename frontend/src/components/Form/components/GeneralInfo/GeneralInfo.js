@@ -14,7 +14,9 @@ const GeneralInfo = () => {
   return (
     <div>
       <div className="mb-10">
-        <label htmlFor="location">Location/City</label>
+        <label className="subTitles" htmlFor="location">
+          Destination
+        </label>
         <input
           id="location"
           type="text"
@@ -24,7 +26,10 @@ const GeneralInfo = () => {
       </div>
 
       <div className="mb-10">
-        <label htmlFor="range">{`Radius: ${range} km`}</label>
+        <label
+          className="subTitles"
+          htmlFor="range"
+        >{`Distance: ${range} km`}</label>
         <input
           type="range"
           id="range"
@@ -33,12 +38,12 @@ const GeneralInfo = () => {
           step="1"
           value={range}
           className="block w-full mt-2 range"
-          onChange={e => setRange(e.target.value)}
+          onChange={(e) => setRange(e.target.value)}
         />
       </div>
 
       <div>
-        <label>Transportation</label>
+        <label className="subTitles">Transportation</label>
         <div className="buttons">
           {meansOfTransport.map((element, i) => (
             <div
@@ -47,7 +52,7 @@ const GeneralInfo = () => {
               className={`button ${element} ${
                 activeIcon === element && "border-2"
               }`}
-              onClick={e => setActiveIcon(element)}
+              onClick={(e) => setActiveIcon(element)}
             />
           ))}
         </div>

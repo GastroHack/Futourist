@@ -3,6 +3,10 @@ input[type="range"]::-webkit-slider-runnable-track {
   color: #137dc5;
 }
 
+.subTitles {
+	font-size: 22px;
+}
+
 input[type="range"]::-webkit-slider-thumb {
   color: #137dc5;
 }

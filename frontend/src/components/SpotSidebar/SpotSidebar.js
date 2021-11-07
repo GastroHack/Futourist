@@ -4,7 +4,7 @@ import Logo from "../../Logo";
 import "./SpotSidebar.css";
 
 const DEFAULT_IMG_URL =
-  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthealmanian.com%2Fwp-content%2Fuploads%2F2019%2F01%2Fproduct_image_thumbnail_placeholder.png&f=1&nofb=1";
+  "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.alittlestyle.de%2Fwp-content%2Fuploads%2Fportfolio%2Fvingster_honig_glas_1200.jpg&f=1&nofb=1";
 
 const SpotSidebar = ({ spots = [], updateSpots }) => {
   const [expanded, setExpanded] = useState(false);
@@ -16,7 +16,8 @@ const SpotSidebar = ({ spots = [], updateSpots }) => {
 
   const setActiveIndex = (index, suggestionIndex) => () => {
     if (!expanded) {
-      return;
+      toggleExpanded();
+      setActiveSpotIndex(index);
     }
 
     setActiveSpotIndex(index);

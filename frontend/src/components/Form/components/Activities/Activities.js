@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import "./Activities.css";
 
 const Activities = () => {
-  //   return <div>Placeholder for Activities</div>;
   const activities = ["museum", "camera", "mountain", "mask"];
+  const [activeIcon, setActiveIcon] = useState("");
+
   return (
     <div className="typeWrapper">
       <div className="mb-10">
@@ -13,18 +15,15 @@ const Activities = () => {
 
       <div>
         <div className="typeButtons">
-          {activities.map((element) => (
-            <div>
-              <button className={`typeButton ${element}`}>
-                <input
-                  type="radio"
-                  id={`${element}`}
-                  name="transportation"
-                  value={`${element}`}
-                  className="radio"
-                />
-              </button>
-            </div>
+          {activities.map(element => (
+            <div
+              key={element}
+              id={element}
+              className={`typeButton ${element} ${
+                activeIcon === element ? "border-4" : "border"
+              }`}
+              onClick={e => setActiveIcon(element)}
+            />
           ))}
         </div>
       </div>

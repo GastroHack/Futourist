@@ -16,14 +16,14 @@ const Activities = () => {
 
       <div>
         <div className="typeButtons">
-          {activities.map(element => (
+          {activities.map((element) => (
             <div
               key={element}
               id={element}
               className={`typeButton ${element} ${
                 activeIcon === element ? "border-4" : "border"
               }`}
-              onClick={e => setActiveIcon(element)}
+              onClick={(e) => setActiveIcon(element)}
             />
           ))}
         </div>
@@ -33,7 +33,7 @@ const Activities = () => {
           <Link to="/typeOfTravel">Go back</Link>
         </button>
         <button className="next">
-          <Link to="/overview">NEXT</Link>
+          <Link to="/overview">LET'S GO</Link>
         </button>
       </div>
       <div className="logo">

@@ -51,7 +51,7 @@ const SpotSidebar = ({ spots = [], updateSpots }) => {
     return (
       <button
         className={`spotImageWrapper ${
-          expanded ? "expanded" : ""
+          expanded ? "expanded" : "notExpanded"
         } mx-auto flex items-center`}
         onClick={setActiveIndex(index)}
       >

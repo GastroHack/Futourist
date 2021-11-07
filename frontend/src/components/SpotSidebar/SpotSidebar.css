@@ -1,8 +1,8 @@
 .title {
-	font-size: 16px;
-	color: #137DC5;
+  font-size: 16px;
+  color: #137dc5;
 
-	/* -webkit-transition: transform .3s ease-out;
+  /* -webkit-transition: transform .3s ease-out;
 	-moz-transition: transform .3s ease-out;
 	-o-transition: transform .3s ease-out;
 	transition: transform .3s ease-out;
@@ -11,72 +11,84 @@
 }
 
 .titleExpanded {
-	transform: scale(1.2);
-	margin-bottom: 1.75rem;
+  transform: scale(1.2);
+  margin-bottom: 1.75rem;
 }
 
 .sidebar {
-	width: 70px;
-	z-index: 1;
-	background-color: #fff;
-	opacity: 0.94;
+  width: 70px;
+  z-index: 1;
+  background-color: #fff;
+  opacity: 0.94;
 
-	/* -webkit-transition: width .6s ease-in;
+  /* -webkit-transition: width .6s ease-in;
 	-moz-transition: width .6s ease-in;
 	-o-transition: width .6s ease-in;
 	transition: width .6s ease-in; */
 }
 
 .sidebarExpanded {
-	width: 90%;
+  width: 90%;
 }
 
 .arrowButton {
-	top: calc(50% - 1.25rem);
-	background-color: #fff;
+  top: calc(50% - 1.25rem);
+  background-color: #fff;
 }
 
 .spot {
-	position: relative;
+  position: relative;
 }
 
 .spot::before {
-	content: '';
-	height: 25px;
-	position: absolute;
-	border-left: 2px dotted #2d388a;
-	left: calc(50% - 1px);
-	top: 100%;
+  content: "";
+  height: 25px;
+  position: absolute;
+  border-left: 2px dotted #2d388a;
+  left: calc(50% - 1px);
+  top: 100%;
 }
 
 .spot:last-of-type::before {
-	height: 0;
+  height: 0;
 }
 
 .spotName {
-	background-color: #b9c9cb;
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-	padding: 0 6px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+  background-color: #b9c9cb;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 0 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .spotImageWrapper {
-	position: relative;
-	width: 45px;
-	height: 45px;
-	border: 1px solid #2d388a;
-	border-radius: 3px;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #2d388a;
+  border-radius: 3px;
 }
 
 .spotImageWrapper.expanded,
 .spotImageWrapper.expanded {
-	width: 5rem;
-	height: 5rem;
+  width: 5rem;
+  height: 5rem;
+  /* transform: scale(2); */
+  /* transition-duration: 1300ms; */
 }
+
+/* @keyframes suggestions {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 80px;
+  }
+} */
 
 .suggestion-1,
 .suggestion-2 {
@@ -102,13 +114,13 @@
 } */
 
 .logo {
-	width: 2.5rem;
-	height: auto;
-	position: absolute;
-	bottom: 1rem;
-	left: 1rem;
+  width: 2.5rem;
+  height: auto;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
 
 .content {
-	display: flex;
+  display: flex;
 }

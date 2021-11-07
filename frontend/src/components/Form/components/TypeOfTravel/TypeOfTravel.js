@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import "./TypeOfTravel.css";
+import Logo from "../../../../Logo";
 
 const TypeOfTravel = () => {
   const types = ["diamond", "piggy", "family", "compass"];
@@ -34,6 +35,9 @@ const TypeOfTravel = () => {
         <button className="next">
           <Link to="/activities">NEXT</Link>
         </button>
+      </div>
+      <div className="logo">
+        <Logo />
       </div>
     </div>
   );

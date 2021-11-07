@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
-import isEmpty from "lodash.isempty";
 
-// components:
 import Marker from "../components/Marker";
-
-// examples:
 import GoogleMap from "../components/GoogleMap";
-
-// consts
-import LOS_ANGELES_CENTER from "../const/la_center";
 
 // Return map bounds based on list of places
 const getMapBounds = (maps, places) => {
   const bounds = new maps.LatLngBounds();
 
-  places.forEach((place) => {
+  places.forEach(([currentPlace]) => {
     bounds.extend(
-      new maps.LatLng(place.geometry.location.lat, place.geometry.location.lng)
+      new maps.LatLng(
+        currentPlace.geometry.location.lat,
+        currentPlace.geometry.location.lng
+      )
     );
   });
   return bounds;
@@ -32,40 +28,61 @@ const bindResizeListener = (map, maps, bounds) => {
 };
 
 // Fit map to its bounds after the api is loaded
-const apiIsLoaded = (map, maps, places) => {
-  // Get bounds by our places
-  const bounds = getMapBounds(maps, places);
-  // Fit map to bounds
-  map.fitBounds(bounds);
-  // Bind the resize listener
-  bindResizeListener(map, maps, bounds);
-
-  const origin = { lat: 47.80949, lng: 13.055010000000038 };
-  const destination = { lat: 47.78861, lng: 13.06024 };
+const apiIsLoaded = (map, maps, places, setServices) => {
+  // const bounds = getMapBounds(maps, places);
+  // map.fitBounds(bounds);
+  // bindResizeListener(map, maps, bounds);
 
   const directionsService = new maps.DirectionsService();
   const directionsDisplay = new maps.DirectionsRenderer();
+
+  setServices([directionsService, directionsDisplay]);
+
+  renderRoute(places, [directionsService, directionsDisplay], [map, maps]);
+};
+
+const renderRoute = (places, services, mapsRef) => {
+  const [directionsService, directionsDisplay] = services;
+  const [map, maps] = mapsRef;
+
+  const bounds = getMapBounds(maps, places);
+  map.fitBounds(bounds);
+  bindResizeListener(map, maps, bounds);
+
+  const originPlace = places[0][0];
+  const destinationPlace = places[places.length - 1][0];
+
+  const origin = {
+    lat: +originPlace.geometry.location.lat,
+    lng: +originPlace.geometry.location.lng,
+  };
+  const destination = {
+    lat: +destinationPlace.geometry.location.lat,
+    lng: +destinationPlace.geometry.location.lng,
+  };
+
+  const wayPoints = [];
+  places.forEach(([currentPlace]) => {
+    const {
+      geometry: {
+        location: { lat, lng },
+      },
+    } = currentPlace;
+    wayPoints.push({
+      location: {
+        lat: +lat,
+        lng: +lng,
+      },
+      stopover: true,
+    });
+  });
+
   directionsService.route(
     {
       origin,
       destination,
       travelMode: "DRIVING",
-      waypoints: [
-        {
-          location: {
-            lat: 47.800714,
-            lng: 13.066319,
-          },
-          stopover: true,
-        },
-        {
-          location: {
-            lat: 47.79028,
-            lng: 13.04764,
-          },
-          stopover: true,
-        },
-      ],
+      waypoints: wayPoints,
       optimizeWaypoints: true,
     },
 
@@ -84,30 +101,44 @@ const apiIsLoaded = (map, maps, places) => {
   );
 };
 
+const DEFAULT_LOCATION = [47.80949, 13.055010000000038];
+
 const Map = ({ locationEntries }) => {
   const [places, setPlaces] = useState([]);
+  const [mapsRef, setMapsRef] = useState([]);
+  const [services, setServices] = useState([]);
 
   useEffect(() => {
-    console.log(locationEntries);
     setPlaces(locationEntries);
+
+    if (
+      locationEntries.length > 0 &&
+      mapsRef.length > 0 &&
+      services.length > 0
+    ) {
+      renderRoute(locationEntries, services, mapsRef);
+    }
   }, [locationEntries]);
 
   return (
     <>
-      {!isEmpty(places) && (
+      {places.length > 0 && (
         <GoogleMap
           defaultZoom={10}
-          defaultCenter={LOS_ANGELES_CENTER}
+          defaultCenter={DEFAULT_LOCATION}
           yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps, places)}
+          onGoogleApiLoaded={({ map, maps }) => {
+            setMapsRef([map, maps]);
+            apiIsLoaded(map, maps, places, setServices);
+          }}
         >
-          {places.map((place) => {
+          {places.map(([currentPlace], index) => {
             return (
               <Marker
-                key={place.id}
-                text={place.name}
-                lat={place.geometry.location.lat}
-                lng={place.geometry.location.lng}
+                key={`${currentPlace.id}${index}`}
+                text={currentPlace.name}
+                lat={currentPlace.geometry.location.lat}
+                lng={currentPlace.geometry.location.lng}
               />
             );
           })}

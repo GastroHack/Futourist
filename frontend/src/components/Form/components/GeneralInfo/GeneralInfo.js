@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./GeneralInfo.css";
+import Logo from "../../../../Logo";
 
 const GeneralInfo = () => {
   const meansOfTransport = ["walk", "bike", "train", "car"];
@@ -55,6 +56,9 @@ const GeneralInfo = () => {
         <button className="next">
           <Link to="/typeOfTravel">NEXT</Link>
         </button>
+      </div>
+      <div className="logo">
+        <Logo />
       </div>
     </div>
   );

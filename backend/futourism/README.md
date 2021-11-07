@@ -1,9 +1,5 @@
-# Getting Started
+# Backend
 
-### Reference Documentation
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/#build-image)
-
+This Spring Boot service parses the XML data provided for Zell am See/Kaprun.
+It then delivers the data we want to extract as JSON.
+Since it's only for presentation purposes and no modification is possible, all domains are allowed regarding CORS.

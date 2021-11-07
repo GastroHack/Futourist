@@ -12,7 +12,7 @@ const GeneralInfo = () => {
   const [range, setRange] = useState(1);
 
   return (
-    <div>
+    <div class="generalInfoWrapper">
       <div className="mb-10">
         <label className="subTitles" htmlFor="location">
           Destination
@@ -58,9 +58,9 @@ const GeneralInfo = () => {
         </div>
       </div>
       <div className="buttonWrapper">
-        <button className="next">
-          <Link to="/typeOfTravel">NEXT</Link>
-        </button>
+        <Link to="/typeOfTravel">
+          <button className="next">NEXT</button>
+        </Link>
       </div>
       <div className="logo">
         <Logo />

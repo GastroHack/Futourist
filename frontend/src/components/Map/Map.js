@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import Marker from "../components/Marker";
-import GoogleMap from "../components/GoogleMap";
+import Marker from "./Marker";
+import GoogleMap from "./GoogleMap";
 
 // Return map bounds based on list of places
 const getMapBounds = (maps, places) => {
@@ -29,10 +29,6 @@ const bindResizeListener = (map, maps, bounds) => {
 
 // Fit map to its bounds after the api is loaded
 const apiIsLoaded = (map, maps, places, setServices) => {
-  // const bounds = getMapBounds(maps, places);
-  // map.fitBounds(bounds);
-  // bindResizeListener(map, maps, bounds);
-
   const directionsService = new maps.DirectionsService();
   const directionsDisplay = new maps.DirectionsRenderer();
 

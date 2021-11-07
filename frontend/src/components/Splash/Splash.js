@@ -5,7 +5,7 @@ import Logo from "../../Logo.js";
 const Splash = () => (
   <div className="flex justify-center h-screen">
     <Link to="/form" className="w-full h-full flex p-24">
-      <Logo />
+      <Logo className="w-full h-full" />
     </Link>
   </div>
 );

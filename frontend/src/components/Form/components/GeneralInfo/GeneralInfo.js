@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./GeneralInfo.css";
 
 const GeneralInfo = () => {
   const meansOfTransport = ["walk", "bike", "train", "car"];
   const [location] = useState("Zell am See-Kaprun");
+
+  const [activeIcon, setActiveIcon] = useState("");
+
   const [range, setRange] = useState(1);
-  //const handleClick = (event) => {};
 
   return (
     <div>
@@ -30,25 +32,22 @@ const GeneralInfo = () => {
           step="1"
           value={range}
           className="block w-full mt-2 range"
-          onChange={(e) => setRange(e.target.value)}
+          onChange={e => setRange(e.target.value)}
         />
       </div>
 
       <div>
         <label>Transportation</label>
         <div className="buttons">
-          {meansOfTransport.map((element) => (
-            <div>
-              <button className={`button ${element}`}>
-                <input
-                  type="radio"
-                  id={`${element}`}
-                  name="transportation"
-                  value={`${element}`}
-                  className="radio"
-                />
-              </button>
-            </div>
+          {meansOfTransport.map((element, i) => (
+            <div
+              key={element}
+              id={element}
+              className={`button ${element} ${
+                activeIcon === element && "border-2"
+              }`}
+              onClick={e => setActiveIcon(element)}
+            />
           ))}
         </div>
       </div>

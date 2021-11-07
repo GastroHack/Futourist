@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import "./TypeOfTravel.css";
 
 const TypeOfTravel = () => {
   const types = ["diamond", "piggy", "family", "compass"];
+  const [activeIcon, setActiveIcon] = useState("");
+
   return (
     <div className="typeWrapper">
       <div className="mb-10">
@@ -12,18 +15,15 @@ const TypeOfTravel = () => {
 
       <div>
         <div className="typeButtons">
-          {types.map((element) => (
-            <div>
-              <button className={`typeButton ${element}`}>
-                <input
-                  type="radio"
-                  id={`${element}`}
-                  name="transportation"
-                  value={`${element}`}
-                  className="radio"
-                />
-              </button>
-            </div>
+          {types.map(element => (
+            <div
+              key={element}
+              id={element}
+              className={`typeButton ${element} ${
+                activeIcon === element ? "border-4" : "border"
+              }`}
+              onClick={e => setActiveIcon(element)}
+            />
           ))}
         </div>
       </div>

@@ -24,7 +24,7 @@
   margin: 2rem;
   width: 5rem;
   height: 5rem;
-  border: solid #137dc5 2px;
+  border-color: #137dc5;
   border-radius: 5px;
   box-shadow: 0px 0px 2px #137dc5;
   background-repeat: no-repeat;

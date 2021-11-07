@@ -28,6 +28,9 @@ const Activities = () => {
         </div>
       </div>
       <div className="buttonWrapper">
+        <button className="goToBack">
+          <Link to="/typeOfTravel">Go back</Link>
+        </button>
         <button className="next">
           <Link to="/activities">NEXT</Link>
         </button>

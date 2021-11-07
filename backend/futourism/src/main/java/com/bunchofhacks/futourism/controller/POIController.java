@@ -1,6 +1,8 @@
 package com.bunchofhacks.futourism.controller;
 
 import com.bunchofhacks.futourism.model.Item;
+import com.bunchofhacks.futourism.output.POIOutput;
+import com.bunchofhacks.futourism.parser.POIOutputMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -31,8 +34,20 @@ public class POIController {
                 "ba19b2c6-da84-4406-a2aa-0f9f2cb6b5d0",
                 "b9950494-472f-4a97-b9b9-15b33d985503\n");
 
+    List<List<POIOutput>> completeOutputList = new ArrayList<>();
+
+    for ( List<Item> itemList : outputList ){
+      List<POIOutput> poiOutputList = new ArrayList<>();
+
+      for ( Item singleItem : itemList ){
+        poiOutputList.add(POIOutputMapper.map(singleItem));
+      }
+
+      completeOutputList.add(poiOutputList);
+    }
+
     try {
-      return mapper.writeValueAsString(outputList);
+      return mapper.writeValueAsString(completeOutputList);
     } catch (JsonProcessingException e) {
       e.printStackTrace();
     }

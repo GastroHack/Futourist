@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Logo from "../../Logo";
 
 import "./SpotSidebar.css";
 
@@ -21,7 +22,7 @@ const SpotSidebar = ({ spots = [] }) => {
     // }
   };
 
-  const renderSuggestionItem = (imageSrc, name, index, suggestionIndex) => {
+  const renderSuggestionItem = ({ imgUrl, name }, index, suggestionIndex) => {
     return (
       <button
         className={`suggestion-${suggestionIndex} ${
@@ -29,13 +30,13 @@ const SpotSidebar = ({ spots = [] }) => {
         } mx-auto flex items-center`}
         onClick={setActiveIndex(index, suggestionIndex)}
       >
-        <img className="object-cover w-full h-full" src={imageSrc} />
+        <img className="object-cover w-full h-full" src={imgUrl} />
         <div className="spotName">{name}</div>
       </button>
     );
   };
 
-  const renderSpotItem = (imageSrc, name, index) => {
+  const renderSpotItem = ({ imgUrl, name }, index) => {
     return (
       <button
         className={`spotImageWrapper ${
@@ -43,14 +44,14 @@ const SpotSidebar = ({ spots = [] }) => {
         } mx-auto flex items-center`}
         onClick={setActiveIndex(index)}
       >
-        <img className="object-cover w-full h-full" src={imageSrc} />
+        <img className="object-cover w-full h-full" src={imgUrl} />
         {expanded && <div className="spotName">{name}</div>}
       </button>
     );
   };
 
   if (spots.length === 0) {
-    return;
+    return null;
   }
 
   return (
@@ -71,31 +72,23 @@ const SpotSidebar = ({ spots = [] }) => {
         STOPS
       </div>
       <ul className="space-y-6 text-sm">
-        {spots.map((spot, index) => {
-          const { suggestions, image, name } = spot;
+        {spots.map(({ items: [mainSpot, suggestion1, suggestion2] }, index) => {
           return (
             <li className="spot flex items-center">
               {expanded &&
                 activeSpotIndex === index &&
-                renderSuggestionItem(
-                  suggestions[0].image,
-                  suggestions[0].name,
-                  index,
-                  0
-                )}
-              {renderSpotItem(image, name, index)}
+                renderSuggestionItem(suggestion1, index, 0)}
+              {renderSpotItem(mainSpot, index)}
               {expanded &&
                 activeSpotIndex === index &&
-                renderSuggestionItem(
-                  suggestions[1].image,
-                  suggestions[1].name,
-                  index,
-                  1
-                )}
+                renderSuggestionItem(suggestion2, index, 1)}
             </li>
           );
         })}
       </ul>
+      <div className="logo">
+        <Logo />
+      </div>
     </div>
   );
 };

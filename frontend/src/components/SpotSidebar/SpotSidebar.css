@@ -118,7 +118,9 @@
 .logo {
   width: 2.5rem;
   height: auto;
-  margin: auto auto 1.5rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
 
 .content {

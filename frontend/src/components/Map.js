@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import isEmpty from "lodash.isempty";
 
 // components:
@@ -11,7 +11,7 @@ import GoogleMap from "../components/GoogleMap";
 import LOS_ANGELES_CENTER from "../const/la_center";
 
 // Return map bounds based on list of places
-const getMapBounds = (map, maps, places) => {
+const getMapBounds = (maps, places) => {
   const bounds = new maps.LatLngBounds();
 
   places.forEach((place) => {
@@ -34,7 +34,7 @@ const bindResizeListener = (map, maps, bounds) => {
 // Fit map to its bounds after the api is loaded
 const apiIsLoaded = (map, maps, places) => {
   // Get bounds by our places
-  const bounds = getMapBounds(map, maps, places);
+  const bounds = getMapBounds(maps, places);
   // Fit map to bounds
   map.fitBounds(bounds);
   // Bind the resize listener
@@ -84,55 +84,37 @@ const apiIsLoaded = (map, maps, places) => {
   );
 };
 
-class Map extends Component {
-  constructor(props) {
-    super(props);
+const Map = ({ locationEntries }) => {
+  const [places, setPlaces] = useState([]);
 
-    this.state = {
-      places: [],
-    };
-  }
+  useEffect(() => {
+    console.log(locationEntries);
+    setPlaces(locationEntries);
+  }, [locationEntries]);
 
-  componentDidMount() {
-    fetch("https://api.futourist.live/scenario1")
-      .then((response) => response.json())
-      .then((data) => {
-        let tempPlaces = [];
-        Object.values(data).forEach((items) => {
-          tempPlaces.push(...items);
-        });
-        this.setState({ places: tempPlaces });
-      });
-  }
-
-  render() {
-    const { places } = this.state;
-    return (
-      <>
-        {!isEmpty(places) && (
-          <GoogleMap
-            defaultZoom={10}
-            defaultCenter={LOS_ANGELES_CENTER}
-            yesIWantToUseGoogleMapApiInternals
-            onGoogleApiLoaded={({ map, maps }) =>
-              apiIsLoaded(map, maps, places)
-            }
-          >
-            {places.map((place) => {
-              return (
-                <Marker
-                  key={place.id}
-                  text={place.name}
-                  lat={place.geometry.location.lat}
-                  lng={place.geometry.location.lng}
-                />
-              );
-            })}
-          </GoogleMap>
-        )}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {!isEmpty(places) && (
+        <GoogleMap
+          defaultZoom={10}
+          defaultCenter={LOS_ANGELES_CENTER}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps, places)}
+        >
+          {places.map((place) => {
+            return (
+              <Marker
+                key={place.id}
+                text={place.name}
+                lat={place.geometry.location.lat}
+                lng={place.geometry.location.lng}
+              />
+            );
+          })}
+        </GoogleMap>
+      )}
+    </>
+  );
+};
 
 export default Map;

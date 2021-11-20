@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context:
+        ./frontend
+    ports:
+      - 8380:80
+
+  backend:
+    build:
+      context:
+        ./backend/futourism
+    volumes:
+      - ./data:/usr/local/futourism/data:ro
+    restart: unless-stopped
+    ports:
+      - 8381:8080

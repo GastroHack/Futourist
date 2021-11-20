@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 //TODO: Add endpoint to dynamically respond to client based on user preferences
+@CrossOrigin(value = { "*" },
+  allowedHeaders = { "GET, POST" }
+)
 @RestController
 public class POIController {
 

@@ -3,5 +3,6 @@
 .vscode
 
 /backend/futourism/data
+/data
 
 node_modules
